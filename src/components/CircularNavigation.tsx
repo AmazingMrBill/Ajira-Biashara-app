@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Briefcase, GraduationCap, Users, ShoppingBag } from 'lucide-react';
 
 const CircularNavigation: React.FC = () => {
   const modules = [
     {
       id: 'marketplace',
-      path: '/services',
       name: 'Ajira Marketplace',
       description: 'Find services & hire professionals',
       icon: Briefcase,
@@ -15,7 +13,6 @@ const CircularNavigation: React.FC = () => {
     },
     {
       id: 'elimika',
-      path: '/elimika',
       name: 'Elimika',
       description: 'Learn new skills & get certified',
       icon: GraduationCap,
@@ -24,7 +21,6 @@ const CircularNavigation: React.FC = () => {
     },
     {
       id: 'jamii',
-      path: '/jamii',
       name: 'Ajira Jamii',
       description: 'Connect & build community',
       icon: Users,
@@ -33,7 +29,6 @@ const CircularNavigation: React.FC = () => {
     },
     {
       id: 'duka',
-      path: '/duka',
       name: 'Ajira Duka',
       description: 'Shop for tools & supplies',
       icon: ShoppingBag,
@@ -80,12 +75,9 @@ const CircularNavigation: React.FC = () => {
                     transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                   }}
                 >
-                  <Link 
-                    to={module.path}
-                    className={`group w-24 h-24 bg-gradient-to-br ${module.color} ${module.hoverColor} rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl`}
-                  >
+                  <button className={`group w-24 h-24 bg-gradient-to-br ${module.color} ${module.hoverColor} rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl`}>
                     <module.icon className="w-8 h-8 text-white" />
-                  </Link>
+                  </button>
                   
                   <div className="absolute top-full mt-4 left-1/2 transform -translate-x-1/2 text-center w-32">
                     <h3 className="font-semibold text-gray-900 text-sm mb-1">{module.name}</h3>
@@ -100,8 +92,7 @@ const CircularNavigation: React.FC = () => {
         {/* Mobile Grid Layout */}
         <div className="grid grid-cols-2 gap-6 lg:hidden">
           {modules.map((module) => (
-            <Link
-              to={module.path}
+            <button
               key={module.id}
               className={`group p-6 bg-gradient-to-br ${module.color} ${module.hoverColor} rounded-2xl text-white transition-all duration-300 hover:scale-105 hover:shadow-xl`}
             >
@@ -112,7 +103,7 @@ const CircularNavigation: React.FC = () => {
                   <p className="text-xs opacity-90">{module.description}</p>
                 </div>
               </div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>
